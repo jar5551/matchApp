@@ -1,0 +1,30 @@
+				=== ALGORYTM WYSZUKUJĄCy ===
+
+- silnik wyszukiwania uzytkowników powinien okazać się bardzo wydajny
+- dlatego też baza danych zarejestrowanych internautów portalu randkowego będzie posortowana alfabetycznie po nazwie
+  użytkownika, który oczywiście będzie unikalny
+-  wykorzystany zostanie do tego algorytm szybkiego sortowania(QuickSort); jest on najbardziej wydajny, toteż nie powinny pojawić się
+  kłopoty, gdy baza rozrośnie się znacząco
+- Dla tak posortowanej bazy zastosowany może zostać algorytm wyszukiwania binarnego czy blokowego; Obydwa mają podobne czasy
+  realizacji zapytania; tu decydować będzie o tym programista
+- po wyszukaniu użytkownika, bedziemy mogli sprawdzić jego publiczny profil, klikaj w zakadke z jego nickname
+		
+			Działanie algorytmu wyszukiwania binarnego:
+Uporządkowaną tablicę dzielimy na coraz mniejsze przedziały, do momentu az znajdziemy szukany element, bądź gdy będzie 
+brak szukanego elementu. Czyli sprawdzamy czy nasz element k należy do poszukiwanego zbioru.Możemy go porównywać
+z elemenetem środkowym jeżeli jest równy k to kończymy algorytm. Jeżeli natomiast jest on większy od k, to onzacza że 
+element k lezy wczesniej, a jeżeli element środkowy mniejszy od k to szuakny element może znjdowac się dalej. 
+I teraz podobne operacje są powtarzane dla elementow leżących odpowiednio powyżej lub poniżej elementu środkowego. 
+I kontynuujemy to tak długo aż nie znajdziemy elementu szukanego, albo nasza tablica będzie jednoelementowa. 
+Wyszukiwanie metodą bisekcji wymaga średnio log n porównań.
+
+			Działanie algorytmu wyszukiwania blokowego:
+W tym algorytmie zbiór który przeszukujemy dzielony jest na bloki, ostatni blok może być niepełny. Z takiego podziału 
+wynika że w każdym bloku ostatni element jest największy, wystarczy więc porównywać te elementy największe z elementem 
+szukanym, az znajdziemy blok w którym ten element może się znajdować. Kiedy znajdziemy taki blok przeszukujemy go za pomocą
+innego algorytmu wyszukującego dane. Wyszukiwanie blokowe wymaga średnio sqrt(n) porównań.Gdzie n jest nasza ilością 
+elementów.
+
+
+
+ 
