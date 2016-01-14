@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Sty 2016, 14:32
+-- Czas generowania: 14 Sty 2016, 15:16
 -- Wersja serwera: 5.6.24
 -- Wersja PHP: 5.6.8
 
@@ -122,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `roles-to-user` (
 
 CREATE TABLE IF NOT EXISTS `sex` (
   `id` int(11) NOT NULL,
+  `code` tinyint(1) NOT NULL,
   `name` varchar(255) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
