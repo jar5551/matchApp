@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Sty 2016, 16:31
+-- Czas generowania: 14 Sty 2016, 14:32
 -- Wersja serwera: 5.6.24
 -- Wersja PHP: 5.6.8
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `characteristics` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `sex` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `characteristics` (
 CREATE TABLE IF NOT EXISTS `characteristics-to-simlar` (
   `characteristic_id` int(11) NOT NULL,
   `simlarCharacteristic_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `characteristics-to-simlar` (
 CREATE TABLE IF NOT EXISTS `characteristics-to-users` (
   `characteristic_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS `characteristics-to-users` (
 CREATE TABLE IF NOT EXISTS `messages` (
   `id` int(11) NOT NULL,
   `topicId` int(11) NOT NULL,
-  `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `message` text COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -76,8 +76,8 @@ CREATE TABLE IF NOT EXISTS `messages-topics` (
   `id` int(11) NOT NULL,
   `userFrom` int(11) NOT NULL,
   `userTo` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(255) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -88,9 +88,9 @@ CREATE TABLE IF NOT EXISTS `messages-topics` (
 CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `photoName` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `photoName` varchar(255) COLLATE utf8_polish_ci NOT NULL,
+  `description` text COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -100,8 +100,8 @@ CREATE TABLE IF NOT EXISTS `photos` (
 
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(255) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,18 @@ CREATE TABLE IF NOT EXISTS `roles` (
 CREATE TABLE IF NOT EXISTS `roles-to-user` (
   `role_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `sex`
+--
+
+CREATE TABLE IF NOT EXISTS `sex` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -122,16 +133,16 @@ CREATE TABLE IF NOT EXISTS `roles-to-user` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8_polish_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_polish_ci NOT NULL,
+  `firstName` varchar(255) COLLATE utf8_polish_ci NOT NULL,
+  `lastName` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `sex` tinyint(1) NOT NULL,
-  `description` text NOT NULL,
+  `description` text COLLATE utf8_polish_ci NOT NULL,
   `createdDate` datetime NOT NULL,
   `modifiedDate` datetime NOT NULL,
   `lastLoginDate` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Indeksy dla zrzutów tabel
@@ -168,6 +179,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sex`
+--
+ALTER TABLE `sex`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -201,6 +218,11 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT dla tabeli `roles`
 --
 ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `sex`
+--
+ALTER TABLE `sex`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `users`
