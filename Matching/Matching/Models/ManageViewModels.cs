@@ -77,6 +77,19 @@ namespace Matching.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
     }
+    public class WhoIAm
+    {
+        [StringLength(300)]
+        [Display(Name = "Something about me")]
+        public string description { get; set; }
+    }
+
+    public class Favourities
+    {
+        [StringLength(300)]
+        [Display(Name = "Favourities")]
+        public string favourities { get; set; }
+    }
 
     public class ConfigureTwoFactorViewModel
     {

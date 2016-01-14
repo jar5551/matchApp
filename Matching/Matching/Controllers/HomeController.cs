@@ -13,14 +13,20 @@ namespace Matching.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult WhoIAm()/*About()*/
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Favourities()/*Contact()*/
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Contact()/*Contact()*/
         {
             ViewBag.Message = "Your contact page.";
 
