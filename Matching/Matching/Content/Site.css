@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    color: #fff;
+    text-shadow: 0 0 15px #000000;
+    background-image: url('../Content/girl-1031750_1920.jpg');
+    backgrond-size: 100%;
+    background-position: top center;
+    min-height: 500px;
+    position: relative;
+}
+
+.jumbotron .signIn {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+}
