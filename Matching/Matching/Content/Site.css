@@ -34,8 +34,14 @@ textarea {
 }
 
 .jumbotron .signIn {
+    text-shadow: none;
     position: absolute;
     bottom: 25px;
     left: 0;
     right: 0;
+}
+
+.jumbotron .signIn .btn {
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.5);
 }
