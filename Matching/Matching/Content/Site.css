@@ -27,10 +27,15 @@ textarea {
     color: #fff;
     text-shadow: 0 0 15px #000000;
     background-image: url('../Content/girl-1031750_1920.jpg');
-    backgrond-size: 100%;
+    background-size: 100%;
     background-position: top center;
     min-height: 500px;
     position: relative;
+    border-radius: 0!important;
+}
+
+.jumbotron h1 {
+    margin-top: 17%;
 }
 
 .jumbotron .signIn {
