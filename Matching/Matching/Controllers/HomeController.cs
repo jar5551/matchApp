@@ -35,7 +35,7 @@ namespace Matching.Controllers
 
         public ActionResult FindYourLove()/*FindYourLove()*/
         {
-            ViewBag.Message = "Your find page.";
+            ViewBag.Message = "Your finder page.";
 
             return View();
         }
