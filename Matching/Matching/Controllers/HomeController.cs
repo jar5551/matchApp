@@ -32,5 +32,12 @@ namespace Matching.Controllers
 
             return View();
         }
+
+        public ActionResult FindYourLove()/*FindYourLove()*/
+        {
+            ViewBag.Message = "Your find page.";
+
+            return View();
+        }
     }
 }
