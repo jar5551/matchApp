@@ -54,15 +54,15 @@ namespace Matching
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1513834452246769",
+               appSecret: "3a28db58fec8c89a32189fc445fcd6dd");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1068032532372-ch8clmtht0slqvlk9dfl6dckmtk9ecim.apps.googleusercontent.com",
+                ClientSecret = "V4tgGcvzLNBMJZ47PM9DYfav"
+            });
         }
     }
 }
