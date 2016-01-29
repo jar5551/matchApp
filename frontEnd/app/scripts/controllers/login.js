@@ -12,6 +12,7 @@ angular.module('frontEndApp')
     $scope.credentials = {};
 
     $scope.login = function () {
+      console.log($scope.credentials);
       if($scope.loginForm.$valid) {
         token.login($scope.credentials).then(
           function (data) {
@@ -22,7 +23,8 @@ angular.module('frontEndApp')
           function (err) {
             console.log(err);
             notification.addNotification(err, true);
-          });
+          }
+        );
       }
     };
   });
