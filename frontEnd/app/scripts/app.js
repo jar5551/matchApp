@@ -69,6 +69,33 @@ angular
         templateUrl: 'views/auth/register.html',
         controller: 'RegisterCtrl'
       })
+      .when('/uzytkownicy/moj-profil', {
+        templateUrl: 'views/user/profile.html',
+        controller: 'UserMyProfileCtrl',
+        resolve: {
+          userData: function(userMeLoader) {
+            return userMeLoader();
+          }
+        }
+      })
+      .when('/uzytkownicy/moj-profil/edytuj', {
+        templateUrl: 'views/user/edit.html',
+        controller: 'UserEditProfileCtrl',
+        resolve: {
+          userData: function(userMeLoader) {
+            return userMeLoader();
+          }
+        }
+      })
+      .when('/uzytkownicy/:userId', {
+        templateUrl: 'views/user/profile.html',
+        controller: 'UserProfileCtrl',
+        resolve: {
+          userData: function(userLoader) {
+            return userLoader();
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
