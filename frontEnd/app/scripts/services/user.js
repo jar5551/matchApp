@@ -8,6 +8,10 @@
  * Factory in the frontEndApp.
  */
 angular.module('frontEndApp')
-  .factory('user', function ($resource) {
-    $resource()
+  .factory('user', function ($rootScope, $resource) {
+    return $resource($rootScope.apiRoot + '/users/:id' + '?t=' + (new Date()).getTime(), {id: '@id'}, {
+      update: {
+        method: 'PUT'
+      }
+    });
   });
