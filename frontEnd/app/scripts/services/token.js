@@ -40,9 +40,7 @@ angular.module('frontEndApp')
         },
 
         getUser: function () {
-          if (!user.loggedIn) {
-            user.getMe();
-          }
+
           return user;
         },
 
