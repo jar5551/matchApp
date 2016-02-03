@@ -40,9 +40,7 @@ angular.module('frontEndApp')
         },
 
         getUser: function () {
-          if (!user.loggedIn) {
-            user.getMe();
-          }
+
           return user;
         },
 
@@ -56,7 +54,7 @@ angular.module('frontEndApp')
         getMe: function () {
           if (typeof user.getToken() !== 'undefined') {
             var deferred = $q.defer();
-            $http.get($rootScope.apiRoot + '/users/me').then(function successCallback(response) {
+            $http.get($rootScope.apiRoot + 'users/me').then(function successCallback(response) {
               console.log(response);
               deferred.resolve(response.data.msg);
 
@@ -72,7 +70,7 @@ angular.module('frontEndApp')
 
         getMeFullData: function () {
           var deferred = $q.defer();
-          $http.get($rootScope.apiRoot + '/users/me-full-data' + '?t=' + (new Date()).getTime()).then(function successCallback(response) {
+          $http.get($rootScope.apiRoot + 'users/me-full-data' + '?t=' + (new Date()).getTime()).then(function successCallback(response) {
             deferred.resolve(response.data.msg);
 
           }, function errorCallback(response) {
@@ -99,7 +97,7 @@ angular.module('frontEndApp')
 
           var config = {skipAuthorization: true};
 
-          $http.post($rootScope.apiRoot + '/users/login', credentials, config).then(function successCallback(response) {
+          $http.post($rootScope.apiRoot + 'users/login', credentials, config).then(function successCallback(response) {
             //$cookies.put('id_token', response.data.jwt);
 
             console.log(response);
@@ -117,7 +115,7 @@ angular.module('frontEndApp')
 
         logout: function () {
           console.log('logout');
-          $http.get($rootScope.apiRoot + '/users/logout');
+          $http.get($rootScope.apiRoot + 'users/logout');
           $cookies.remove('id_token');
           $cookies.remove('refresh_token');
           user.resetUser();
@@ -133,7 +131,7 @@ angular.module('frontEndApp')
 
           var deferred = $q.defer();
 
-          $http.post($rootScope.apiRoot + '/users/me/change-password', data).then(function successCallback(response) {
+          $http.post($rootScope.apiRoot + 'users/me/change-password', data).then(function successCallback(response) {
             deferred.resolve('Hasło zostało zmienione');
           }, function errorCallback(response) {
             deferred.reject('Wystąpił problem ze zmianą hasła');
@@ -161,7 +159,7 @@ angular.module('frontEndApp')
 
           var config = {skipAuthorization: true};
 
-          $http.post($rootScope.apiRoot + '/users/regiser', data, config).then(function successCallback(response) {
+          $http.post($rootScope.apiRoot + 'users/regiser', data, config).then(function successCallback(response) {
             deferred.resolve(response);
           }, function errorCallback(response) {
             deferred.reject(response.data.msg);

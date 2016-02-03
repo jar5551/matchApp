@@ -8,7 +8,7 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-  .controller('LoginCtrl', function ($scope, token, notification) {
+  .controller('LoginCtrl', function ($scope, $location, token, notification) {
     $scope.credentials = {};
 
     $scope.login = function () {

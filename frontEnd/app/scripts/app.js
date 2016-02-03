@@ -23,34 +23,6 @@ angular
 
     jwtInterceptorProvider.tokenGetter = ['$rootScope', 'jwtHelper', '$http', 'token', function($rootScope, jwtHelper, $http, token) {
       var idToken = token.getToken();
-      var refreshToken = token.getRefreshToken();
-      if (idToken && jwtHelper.isTokenExpired(idToken)) {
-        // This is a promise of a JWT id_token
-        return $http({
-          url: $rootScope.apiRoot + '/users/delegation',
-          // This makes it so that this request doesn't send the JWT
-          skipAuthorization: true,
-          method: 'POST',
-          data: {
-            grant_type: 'refresh_token',
-            refresh_token: refreshToken
-          }
-        }).then(function(response) {
-          var id_token = response.data.msg.jwt;
-          token.setToken(id_token);
-          token.setRefreshToken(response.data.msg.refreshToken);
-
-          console.log(id_token);
-
-          //localStorage.setItem('id_token', id_token);
-          //token.setToken(id_token);
-          return id_token;
-        }, function(error) {
-          console.log(error);
-        });
-      } else {
-        return idToken;
-      }
 
       return idToken;
 
@@ -101,6 +73,6 @@ angular
       });
   })
   .run(function ($rootScope) {
-    $rootScope.apiRoot = 'api';
+    $rootScope.apiRoot = 'http://rvat.local/';
   })
 ;
