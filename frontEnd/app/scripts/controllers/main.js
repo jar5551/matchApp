@@ -9,8 +9,9 @@
  */
 angular.module('frontEndApp')
   .controller('MainCtrl', function ($scope, token, notification) {
-    $scope.logout = function () {
+    $scope.logout = function (e) {
       token.logout();
+      e.preventDefault();
     };
 
     $scope.user = token.getUser();
@@ -23,7 +24,7 @@ angular.module('frontEndApp')
 
         $scope.user = token.getUser();
       }, function (error) {
-        notification.addNotification(error.data.msg, true);
+        notification.addNotification(error, true);
         token.logout();
       });
     }
