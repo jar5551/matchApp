@@ -41,6 +41,10 @@ angular
         templateUrl: 'views/auth/register.html',
         controller: 'RegisterCtrl'
       })
+      .when('/kontakt', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
       .when('/uzytkownicy/moj-profil', {
         templateUrl: 'views/user/profile.html',
         controller: 'UserMyProfileCtrl',
