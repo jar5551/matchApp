@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 03 Lut 2016, 21:08
+-- Czas generowania: 07 Lut 2016, 15:40
 -- Wersja serwera: 10.1.9-MariaDB
 -- Wersja PHP: 5.6.15
 
@@ -52,19 +52,19 @@ INSERT INTO `characteristics` (`id`, `name`, `nameMale`, `nameFemale`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `characteristics-to-simlar`
+-- Struktura tabeli dla tabeli `characteristicstosimlar`
 --
 
-CREATE TABLE `characteristics-to-simlar` (
+CREATE TABLE `characteristicstosimlar` (
   `characteristic_id` int(11) NOT NULL,
   `simlarCharacteristic_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `characteristics-to-simlar`
+-- Zrzut danych tabeli `characteristicstosimlar`
 --
 
-INSERT INTO `characteristics-to-simlar` (`characteristic_id`, `simlarCharacteristic_id`) VALUES
+INSERT INTO `characteristicstosimlar` (`characteristic_id`, `simlarCharacteristic_id`) VALUES
 (1, 2),
 (3, 4),
 (5, 6),
@@ -77,19 +77,19 @@ INSERT INTO `characteristics-to-simlar` (`characteristic_id`, `simlarCharacteris
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `characteristics-to-users`
+-- Struktura tabeli dla tabeli `characteristicstousers`
 --
 
-CREATE TABLE `characteristics-to-users` (
+CREATE TABLE `characteristicstousers` (
   `characteristic_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `characteristics-to-users`
+-- Zrzut danych tabeli `characteristicstousers`
 --
 
-INSERT INTO `characteristics-to-users` (`characteristic_id`, `user_id`) VALUES
+INSERT INTO `characteristicstousers` (`characteristic_id`, `user_id`) VALUES
 (2, 2),
 (14, 2),
 (10, 2),
@@ -123,10 +123,10 @@ INSERT INTO `messages` (`id`, `author`, `topicId`, `message`, `dateSend`, `dateR
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `messages-topics`
+-- Struktura tabeli dla tabeli `messagestopics`
 --
 
-CREATE TABLE `messages-topics` (
+CREATE TABLE `messagestopics` (
   `id` int(11) NOT NULL,
   `userFrom` int(11) NOT NULL,
   `userTo` int(11) NOT NULL,
@@ -134,10 +134,10 @@ CREATE TABLE `messages-topics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `messages-topics`
+-- Zrzut danych tabeli `messagestopics`
 --
 
-INSERT INTO `messages-topics` (`id`, `userFrom`, `userTo`, `name`) VALUES
+INSERT INTO `messagestopics` (`id`, `userFrom`, `userTo`, `name`) VALUES
 (1, 3, 2, 'Hej mała ;)');
 
 -- --------------------------------------------------------
@@ -175,19 +175,19 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `roles-to-user`
+-- Struktura tabeli dla tabeli `rolestouser`
 --
 
-CREATE TABLE `roles-to-user` (
+CREATE TABLE `rolestouser` (
   `role_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `roles-to-user`
+-- Zrzut danych tabeli `rolestouser`
 --
 
-INSERT INTO `roles-to-user` (`role_id`, `user_id`) VALUES
+INSERT INTO `rolestouser` (`role_id`, `user_id`) VALUES
 (1, 1),
 (2, 2),
 (2, 3),
@@ -255,7 +255,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `firstName`, `lastName`, `accessToken`, `refreshToken`, `sex`, `description`, `createdDate`, `modifiedDate`, `lastLoginDate`) VALUES
-(1, 'admin@admin.pl', '$2a$09$viEK8d7YfPrOeGnzmQ9e3eddhYvfe8.a9DedngZg3lxnznhd25lQq', 'Użytkownik', 'Administrator', '', '', 1, 'Administrator serwisu', '0000-00-00 00:00:00', NULL, NULL),
+(1, 'test@test.pl', '$2y$10$ZzCHqeG52KcIAGRoYXJQp.hO7ePrjzar.ns7E/HN/OJeRlcBgiY3i', 'Użytkownik', 'Administrator', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU0ODU1OTk5IiwiZXhwIjoiMTQ1NDg1Njg5OSIsImp0aSI6IjA5YTI5ODM0MmEzNjM1ZmJjYjI4OWM1NWFiM2JlY2MwIiwic2NvcGUiOlt7Im5hbWUiOiJBZG1pbmlzdHJhdG9yIn1dfQ._fZmWjyFKR-vuxo3RjX4RZ2zmgN0rfgrIvjZsLOVq0o', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU0ODU1OTk5IiwiZXhwIjoiMTQ1NDg2MzE5OSIsImp0aSI6ImYwZWYzOGMyYjBhNWNmYTcxZDM1MWE5OGM4MGRjODE3In0.8HvdYOsJYo2QIzbuFHv1FuV94M1xnY_srzoujexnF5A', 1, 'Administrator serwisu', '0000-00-00 00:00:00', NULL, NULL),
 (2, 'kobieta@test.pl', '$2a$09$.D/my3d6vaNVDb43.m6mZuktxQIrzKfhjtA3wI1iMif5luwGRtPHK', 'Testowa', 'Kobieta', '', '', 0, 'Jestem kobietÄ… testowÄ…. Ĺ»adnych testĂłw siÄ™ nie bojÄ™.', '0000-00-00 00:00:00', NULL, NULL),
 (3, 'mezczyzna@test.pl', '$2a$09$4SI015knDqxiXtr/PvuFPuH4lNvZPfOwS8D7yc6LagWcsArjHSBAG', 'Testowy', 'Mężczyzna', '', '', 1, 'Testuj mnie jak chcesz', '0000-00-00 00:00:00', NULL, NULL),
 (4, 'asd3fe@adsa.pl', '$2a$09$4Wc4U8fNYxfIBVmHgjDwoO0rQC5LbjW.7A9cGIeKmVMZWF06vnF8e', 'Jan', 'Kowalski', '', '', 1, 'Opis', '0000-00-00 00:00:00', NULL, NULL),
@@ -293,9 +293,9 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `messages-topics`
+-- Indexes for table `messagestopics`
 --
-ALTER TABLE `messages-topics`
+ALTER TABLE `messagestopics`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -337,9 +337,9 @@ ALTER TABLE `characteristics`
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT dla tabeli `messages-topics`
+-- AUTO_INCREMENT dla tabeli `messagestopics`
 --
-ALTER TABLE `messages-topics`
+ALTER TABLE `messagestopics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT dla tabeli `photos`

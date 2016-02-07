@@ -24,7 +24,7 @@ angular.module('frontEndApp')
 
         $scope.user = token.getUser();
       }, function (error) {
-        notification.addNotification(error, true);
+        //notification.addNotification(error, true);
         token.logout();
       });
     }

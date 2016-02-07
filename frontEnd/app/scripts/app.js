@@ -73,6 +73,7 @@ angular
       });
   })
   .run(function ($rootScope) {
-    $rootScope.apiRoot = 'http://rvat.local/';
+    $rootScope.apiRoot = 'http://match.local/';
+    //$rootScope.apiRoot = 'api/';
   })
 ;
