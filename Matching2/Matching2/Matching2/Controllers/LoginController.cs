@@ -169,6 +169,8 @@ namespace Matching2.Controllers
         }
 
         // POST: api/Login
+        [HttpPost]
+        [AllowAnonymous]
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
