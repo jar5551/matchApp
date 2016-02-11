@@ -8,31 +8,27 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-  .controller('RegisterCtrl', function ($scope, notification, token) {
-    $scope.data = {};
+    .controller('RegisterCtrl', function ($scope, $location, notification, token) {
+        $scope.data = {};
 
-    $scope.login = function () {
-      console.log($scope.data);
-      if($scope.registerForm.$valid) {
-        token.createAccount($scope.data).then(
-          function(data) {
-            token.login(data).then(
-              function (data) {
-                $location.path('/');
-                $scope.credentials = {};
-                notification.addNotification(data, false);
-              },
-              function (err) {
-                console.log(err);
-                notification.addNotification(err, true);
-              }
+        $scope.register = function () {
+            console.log($scope.data);
+            token.createAccount($scope.data).then(
+                function (response) {
+
+                    console.log(response.data);
+
+                    token.setLoginData(response.data.jwt, response.data.rto, response.data.user.name);
+
+                    $location.path('/');
+                    $scope.data = {};
+                    notification.addNotification(response.data.msg, false);
+
+                },
+                function (err) {
+                    notification.addNotification(err, true);
+                }
             );
-          },
-          function(err) {
-            notification.addNotification(err, true);
-          }
-        );
 
-      }
-    };
-  });
+        };
+    });

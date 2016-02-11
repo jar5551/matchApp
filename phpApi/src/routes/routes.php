@@ -3,6 +3,7 @@
 require 'users/users.php';
 require 'registers/registers.php';
 require 'roles/roles.php';
+require 'messages/messages.php';
 
 /* wyswietl kontrahentow */
 

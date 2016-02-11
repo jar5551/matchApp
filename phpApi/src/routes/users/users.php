@@ -14,18 +14,6 @@ $app->get('/users/', function () use ($app) {
     ));
 });
 
-$app->get('/users/my-unit', function () use ($app) {
-    $user = new User();
-
-    $token = $app->request->headers("Authorization");
-
-    $users = $user->getMyUnitUsers($token);
-
-    $app->render(200, array(
-        'msg' => $users
-    ));
-});
-
 /* utworz uzytkownika */
 $app->post('/users/', function () use ($app) {
     /* przykladowy json
@@ -127,6 +115,39 @@ $app->post('/users/login', function () use ($app) {
             'msg' => 'Nieporawne dane logowania'
         ));
     }
+});
+
+$app->post('/users/register', function () use ($app) {
+    $json = $app->request->getBody();
+    $data = json_decode($json, true);
+
+    if(!isset($data['email']) || !$data['email'] || !isset($data['password1']) || !$data['password1'] || !isset($data['password2']) || !$data['password2'] || !isset($data['name']) || !$data['name'] || !isset($data['sex'])) {
+        $app->render(400, array(
+            'msg' => 'Proszę podać dane niezbędne do utworzenia nowego konta'
+        ));
+    }
+
+    if($data['password1'] !== $data['password2']) {
+        $app->render(400, array(
+            'msg' => 'Podane hasła nie są zgodne'
+        ));
+    }
+
+    $user = new User();
+
+    $register = $user->register($data);
+    $userData = $user->me($register['jwt'], false);
+
+    $app->render(200, array(
+        'msg' => 'Zalogowano poprawnie',
+        'jwt' => $register['jwt'],
+        'rto' => $register['refreshToken'],
+        'user' => $userData
+    ));
+    $app->render(200, array(
+        'msg' => $register
+    ));
+
 });
 
 /* biezacy uzytkownik */
