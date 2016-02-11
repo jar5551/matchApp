@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VAT-7</title>
+
+    <style>
+        #wrapper {
+            width: 100%;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #header_main {
+            border-bottom: solid;
+            border-width: 3px;
+            border-color: #000;
+            overflow: hidden;
+            margin-bottom: 2px;
+        }
+
+        #header_main .title{
+            width: 10%;
+            float: left;
+            font-size: 18px;
+        }
+
+        #header_main .info{
+            width: 90%;
+            float: left;
+            font-size: 10px;
+        }
+        .input {
+            height: 40px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #000;
+            float: left;
+        }
+
+        .input.disabled {
+            background-color: #bcbcbc;
+        }
+
+        .input small {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .input .value {
+            height: 20px;
+        }
+
+        #nip {
+            width: 40%;
+        }
+        #p2 {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header_main">
+        <div class="title">
+            POLTAX
+        </div>
+        <div class="info">
+            POLA JASNE WYPEŁNIA PODATNIK, POLA CIEMNE WYPEŁNIA URZĄD. WYPEŁNIĆ NA MASZYNIE, KOMPUTEROWO LUB RĘCZNIE, DUŻYMI, DRUKOWANYMI LITERAMI, CZARNYM LUB NIEBIESKIM KOLOREM.
+        </div>
+    </div>
+    <div id="podatnik_info">
+        <div id="nip" class="input">
+            <small>1. Identyfikator podatkowy NIP podatnika</small>
+            <div class="value">{{p1}}</div>
+        </div>
+        <div id="p2" class="input disabled">
+            <small>2. Nr dokumentu</small>
+        </div>
+    </div>
+</div>
+</body>
+</html>
