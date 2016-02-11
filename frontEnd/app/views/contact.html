@@ -1,0 +1,21 @@
+<h2>Kontakt</h2>
+
+<form ng-submit="" name="contactForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Imię i nazwisko</label>
+    <input type="text" class="form-control" id="exampleInputimienaz" placeholder="" ng-model="credentials.imienaz" required>
+  </div>		
+  <div class="form-group">
+    <label for="exampleInputEmail2">E-mail</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="" ng-model="credentials.email" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Temat</label>
+    <input type="text" class="form-control" id="exampleInputtemat" placeholder="" ng-model="credentials.temat" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Temat</label><br/>
+    <textarea class="box-area" id="exampleInputmessage" ng-model="credentials.message" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Wyślij</button>
+</form>
