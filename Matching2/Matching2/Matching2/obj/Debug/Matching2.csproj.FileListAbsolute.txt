@@ -222,3 +222,6 @@ C:\Users\Dell\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Micros
 C:\Users\Dell\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.dll
 C:\Users\Dell\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.pdb
+F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.csprojResolveAssemblyReference.cache
+F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.dll
+F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.pdb
