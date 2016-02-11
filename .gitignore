@@ -51,5 +51,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-api/composer.phar
-api/vendor/
+phpApi/composer.phar
+phpApi/vendor/
