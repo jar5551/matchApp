@@ -36,7 +36,7 @@ $app->db = function () {
 
 $app->get('/', function () use ($app) {
     $app->render(200, array(
-        'msg' => 'This is rVAT API!'
+        'msg' => 'Człowieku, tutaj miłości nie znajdziesz...'
     ));
 });
 
