@@ -64,5 +64,7 @@ namespace Matching2
             //    ClientSecret = ""
             //});
         }
+
+        public static object TokenEndpointPath { get; set; }
     }
 }
