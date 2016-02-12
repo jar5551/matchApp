@@ -17,7 +17,8 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'angular-jwt'
+        'angular-jwt',
+        'angular-loading-bar'
     ])
     .config(function ($routeProvider, $httpProvider, jwtInterceptorProvider) {
 
