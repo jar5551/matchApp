@@ -46,7 +46,7 @@ class User
 
         $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-        return array('password' => $password, 'salt' => $options['salt']);
+        return $password;
     }
 
     public function isUserHasRole($token, $role)
@@ -104,7 +104,7 @@ class User
 
         $tokenCfg = array(
             'iat' => strtotime('now'),
-            'exp' => strtotime('+ 15 minutes'),
+            'exp' => strtotime('+ 2 hours'),
             'refreshExp' => strtotime('+ 2 hours'),
             'jti' => md5(uniqid($email, true))
         );
@@ -272,7 +272,7 @@ class User
 
         try {
             $user = Capsule::table('users as u')
-                ->select('u.id', 'u.email', 'u.active', 'u.firstName', 'u.lastName', 'u.position', 'u.created', 'u.modified', 'r.id as rank', 'r.name as rankName')
+                ->select('u.id', 'u.email', 'u.firstName')
                 ->join('ranks as r', 'u.rank', '=', 'r.id')
                 ->where('u.id', $id)
                 ->first();
@@ -445,6 +445,32 @@ class User
         return false;
     }
 
+    public function register($data) {
+        if(!$this->isUniqueUser($data['email'])) {
+            throw new \Exception("Już istnieje użytkwonik w naszej bazie zarejestrowany na podany adres email");
+        }
+
+        try {
+
+            Capsule::table('users')
+                ->insert([
+                    'email' => $data['email'],
+                    'password' => $this->passwordCrypt($data['password1']),
+                    'firstName' => $data['name'],
+                    'sex' => $data['sex'],
+                    'createdDate' => date("Y-m-d H:i:s")
+                ]);
+
+        } catch (\Exception $e) {
+            throw new \Exception("Error Processing Request");
+        }
+
+        $jwt = $this->updateToken($data['email']);
+
+        return $jwt;
+
+    }
+
     public function logout($token)
     {
 
@@ -483,7 +509,7 @@ class User
             }
 
             $userData = array(
-                'name' => $user->firstName == null && $user->lastName == null ? $user->email : $user->firstName . ' ' . $user->lastName,
+                'name' => $user->firstName,
             );
             return $userData;
         }
@@ -496,7 +522,7 @@ class User
         if ($this->validateToken($token)) {
             try {
                 $user = Capsule::table('users as u')
-                    ->select('u.email', 'u.firstName', 'u.lastName', 'u.position', 'r.name as rankName')
+                    ->select('u.email', 'u.firstName', 'u.sex', 'u.description')
                     ->join('ranks as r', 'u.rank', '=', 'r.id')
                     ->where('accessToken', $this->shortToken($token))
                     ->where('active', 1)
@@ -519,8 +545,6 @@ class User
                     ->update([
                         'email' => $data['email'],
                         'firstName' => $data['firstName'],
-                        'lastName' => $data['lastName'],
-                        'position' => $data['position']
                     ]);
 
                 return true;
@@ -649,7 +673,6 @@ class User
                 $user = Capsule::table('users')
                     ->select('*')
                     ->where('accessToken', $this->shortToken($token))
-                    ->where('active', 1)
                     ->first();
 
             } catch (\Exception $e) {
@@ -674,6 +697,20 @@ class User
         }
 
         return $documents;
+    }
+
+    private function isUniqueUser($email) {
+        try {
+            $uniqueUser = Capsule::table('users')
+                ->select('email')
+                ->where('email', $email)
+                ->count();
+
+        } catch (\Exception $e) {
+            throw new \Exception("Problem z uzyskaniem informacji o użytkowniku");
+        }
+
+        return $uniqueUser == 0;
     }
 
 }

@@ -20,7 +20,7 @@ angular.module('frontEndApp')
       console.log('aa');
       token.getMe().then(function (response) {
 
-        token.setUser(response.name, response.position, response.units, true);
+        token.setUser(response.name, true);
 
         $scope.user = token.getUser();
       }, function (error) {

@@ -225,6 +225,7 @@ C:\Users\Dell\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.csprojResolveAssemblyReference.cache
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.dll
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.pdb
+<<<<<<< HEAD
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\ApplicationInsights.config
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\Matching2.dll.config
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\Matching2.dll
@@ -301,3 +302,80 @@ F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Google.xml
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Twitter.xml
 F:\University\Projekt Matching\Match\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+=======
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\ApplicationInsights.config
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Matching2.dll.config
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Matching2.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Matching2.pdb
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Antlr3.Runtime.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\EntityFramework.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\EntityFramework.SqlServer.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\JWT.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.Web.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Newtonsoft.Json.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Owin.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Net.Http.Formatting.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Helpers.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Http.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Http.WebHost.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Mvc.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Optimization.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Razor.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\WebGrease.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.Web.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Helpers.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Mvc.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Optimization.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Razor.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Antlr3.Runtime.pdb
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Newtonsoft.Json.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Net.Http.Formatting.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Http.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\System.Web.Http.WebHost.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\EntityFramework.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\EntityFramework.SqlServer.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.csprojResolveAssemblyReference.cache
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.dll
+C:\Users\Tomasz\Documents\GitHub\matchApp\Matching2\Matching2\Matching2\obj\Debug\Matching2.pdb
+>>>>>>> 34b1b6568571ceea830a0a5afd21a09f4e94fe12
