@@ -23,4 +23,6 @@ angular.module('frontEndApp')
     };*/
 
     $scope.user = userData;
+
+    console.log($scope.user);
   });

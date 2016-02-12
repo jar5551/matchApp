@@ -10,8 +10,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Matching2.Models;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net;
 using System.Web.Script.Serialization;
 
 namespace Matching2.Controllers
@@ -70,51 +68,16 @@ namespace Matching2.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Route("Login")]
-        public async Task<ActionResult> Login(LoginViewModel model)     //(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var testserver = TestServer.Create<Startup>();
-            var requestParams = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("grant_type", "password"),
-                new KeyValuePair<string, string>("username", model.Email),
-                new KeyValuePair<string, string>("password", model.Password)
-            };
-            var requestParamsFormUrlEncoded = new FormUrlEncodedContent(requestParams);
-            var tokenServiceResponse = await testserver.HttpClient.PostAsync(
-                Startup.TokenEndpointPath, requestParamsFormUrlEncoded);
+            
 
-            if (tokenServiceResponse.StatusCode == HttpStatusCode.OK)
 
-                {
-                // Sucessful login --> create user session in the database
-                var responseString = await tokenServiceResponse.Content.ReadAsStringAsync();
-                var jsSerializer = new JavaScriptSerializer();
-                var responseData = jsSerializer.Deserialize<Dictionary<string, string>>(responseString);
-                var authToken = responseData["access_token"];
-                var username = responseData["username"];
-                var userSessionManager = new UserSessionManager();
-                userSessionManager.CreateUserSession(username, authToken);
-
-                // Cleanup: delete expired sessions from the database
-                userSessionManager.DeleteExpiredSessions();
-            }
-
-            return this.ResponseMessage(tokenServiceResponse);
-        }
-
-private ActionResult ResponseMessage(var tokenServiceResponse)
-{
- 	throw new NotImplementedException();
-}
-/*
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -130,9 +93,10 @@ private ActionResult ResponseMessage(var tokenServiceResponse)
                     return View(model);
             }
         }
-*/
+
         
         // GET: /Account/VerifyCode
+
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
@@ -143,7 +107,7 @@ private ActionResult ResponseMessage(var tokenServiceResponse)
             }
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
-
+        
         //
         // POST: /Account/VerifyCode
         [HttpPost]
