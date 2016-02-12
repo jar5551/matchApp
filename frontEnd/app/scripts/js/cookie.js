@@ -22,7 +22,7 @@ for (i=0;i<ARRcookies.length;i++)
  
 $(document).ready(function() {
  
-	var okno = '<div class="cookie">Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a href="polityka-prywatnosci" class="link_c">Polityką Plików Cookies.</a> Możesz określić warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce. <img src="./../images/iks.png" class="cookie-x" alt="Zamknij" /></div>';
+	var okno = '<div class="cookie">Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a href="#/polityka-prywatnosci" class="link_c">Polityką Plików Cookies.</a> Możesz określić warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce. <img src="./../images/iks.png" class="cookie-x" alt="Zamknij" /></div>';
  
 	var ciacho = getCookie('cookie');
 	if(ciacho != 1) {
