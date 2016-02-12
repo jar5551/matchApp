@@ -26,5 +26,7 @@ namespace Matching2.Models.DB
         }
     
         public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<CharacteristicModel> Characteristics { get; set; }
     }
 }
