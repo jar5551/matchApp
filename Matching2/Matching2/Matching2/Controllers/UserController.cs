@@ -4,36 +4,64 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using Matching2.Models.DB;
+using Matching2.Models;
 namespace Matching2.Controllers
 {
+    
     public class UserController : ApiController
     {
-        // GET api/user
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+                 
+            // GET api/user
+            [Route("api/user")]
+            public HttpResponseMessage Get()
+            {
+                var users = UserModel.GetAllUsers();
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+                return response;
+            }
 
-        // GET api/user/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+            // GET api/user/5
+            [Route("api/user/{id?}")]
+            public HttpResponseMessage Get(int id)
+            {
+                var user = UserModel.GetUserByID(id);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
+                return response;
+            }
 
-        // POST api/user
-        public void Post([FromBody]string value)
-        {
-        }
+            [Route("api/user/{name:alpha}")]
+            public HttpResponseMessage Get(string name)
+            {
+                var users = UserModel.SearchUserBySecondName(name);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+                return response;
+            }
 
-        // PUT api/user/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            [Route("api/user")]
+            public HttpResponseMessage Post(User user)
+            {
+                var users = UserModel.InsertUser(user);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+                return response;
+            }
 
-        // DELETE api/user/5
-        public void Delete(int id)
-        {
-        }
+            [Route("api/user")]
+            public HttpResponseMessage Put(User user)
+            {
+                var users = UserModel.UpdateUser(user);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+                return response;
+            }
+
+            [Route("api/user")]
+            public HttpResponseMessage Delete(User user)
+            {
+                var  users = UserModel.Delete(user);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+                return response;
+            }
+        
+
     }
 }
