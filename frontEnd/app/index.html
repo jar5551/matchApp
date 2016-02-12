@@ -51,6 +51,7 @@
             </ul>
             <ul class="nav navbar-nav pull-right" ng-show="user.loggedIn">
               <li><a href="#/uzytkownicy/moj-profil" ng-bind="user.name"></a></li>
+                <li><a href="#/znajomi">Znajomi</a></li>
                 <li><a href="#/wiadomosci">Wiadomości</a></li>
               <li><a href="#" ng-click="logout($event)">Wyloguj</a></li>
             </ul>
@@ -118,6 +119,7 @@
         <script src="scripts/services/messages-loader.js"></script>
         <script src="scripts/controllers/message.js"></script>
         <script src="scripts/services/message-loader.js"></script>
+        <script src="scripts/controllers/friends.js"></script>
         <!-- endbuild -->
 
     <script src="scripts/js/classie.js"></script>

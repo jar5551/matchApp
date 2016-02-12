@@ -38,10 +38,11 @@ $app->put('/messages/:topicId', function ($topicId) use ($app) {
     $data = json_decode($json, true);
     $message = new Message();
 
-    $message->newMessage($token, $topicId, $data);
+    $newMessage = $message->newMessage($token, $topicId, $data['message']);
 
 
     $app->render(200, array(
-        'msg' => 'Wiadomość wysłano poprawnie'
+        'msg' => 'Pomyślnie wysłano wiadomość',
+        'message' => $newMessage
     ));
 });

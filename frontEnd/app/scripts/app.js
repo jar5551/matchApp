@@ -69,14 +69,18 @@ angular
                     }
                 }
             })
-            .when('/wiadomosci', {
-                templateUrl: 'views/messages/all.html',
-                controller: 'MessagesCtrl',
+            .when('/znajomi', {
+                templateUrl: 'views/friends/all.html',
+                controller: 'FriendsCtrl',
                 resolve: {
                     messages: function (messagesLoader) {
                         return messagesLoader();
                     }
                 }
+            })
+            .when('/wiadomosci', {
+                templateUrl: 'views/messages/all.html',
+                controller: 'MessagesCtrl'
             })
             .when('/wiadomosci/:messageId', {
                 templateUrl: 'views/messages/one.html',
