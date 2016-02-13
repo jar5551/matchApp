@@ -1,16 +1,12 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>#</th>
-        <th>Temat</th>
-        <th>Rozmówca</th>
+        <th>Znajomi</th>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="message in messages" ng-click="goToConversation(message.id)">
-        <th scope="row">{{$index + 1}}</th>
-        <td>{{message.name}}</td>
-        <td>{{message.participant}}</td>
+    <tr ng-repeat="user in friends">
+        <td><a ng-href="#/uzytkownicy/{{user.id}}">{{user.firstName}}</a></td>
     </tr>
     </tbody>
 </table>

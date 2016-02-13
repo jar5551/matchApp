@@ -8,7 +8,7 @@
 
 use src\models\Friend;
 
-$app->get('/fiends/', function () use ($app) {
+$app->get('/friends/', function () use ($app) {
 
   $token = $app->request->headers("Authorization");
 

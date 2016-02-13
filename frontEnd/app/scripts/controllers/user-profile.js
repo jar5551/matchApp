@@ -11,4 +11,6 @@ angular.module('frontEndApp')
   .controller('UserProfileCtrl', function ($scope, $routeParams, userData) {
 
     $scope.user = userData;
+
+    console.log($scope.user);
   });

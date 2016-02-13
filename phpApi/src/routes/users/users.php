@@ -240,7 +240,7 @@ $app->get('/users/:user_id', function ($user_id) use ($app) {
 
     $user = new User();
 
-    $userData = $user->getUser($token, $user_id);
+    $userData = $user->getUser($user_id);
 
     if($userData) {
         $app->render(200, array(

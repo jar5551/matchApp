@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-<<<<<<< HEAD
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
@@ -21,27 +20,6 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
-=======
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/ns-default.css">
-    <link rel="stylesheet" href="styles/ns-style-growl.css">
-
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
->>>>>>> ceafff82e547b5695fe0e677b096755bd6c3df00
 </head>
 <body ng-app="frontEndApp" ng-controller="MainCtrl">
 <!--[if lte IE 8]>
@@ -88,13 +66,13 @@
   </div>
 </div>
 
-<div id="main-conent" class="container">
+<div class="container" id="main-conent">
   <div ng-view=""></div>
 </div>
 
 <div class="footer">
   <div class="container">
-    <p><strong>&copy; 2016 | Created by DD, JF, TG, RA, AB, DC, PJ</strong></p>
+    <p><strong>&copy; 2016 | Created by PJ, AB, DC, RA, TG, DD, JF</strong></p>
   </div>
 </div>
 
@@ -151,6 +129,8 @@
 <script src="scripts/services/message-loader.js"></script>
 <script src="scripts/controllers/friends.js"></script>
 <script src="scripts/controllers/contact.js"></script>
+<script src="scripts/services/friend.js"></script>
+<script src="scripts/services/friends-loader.js"></script>
 <!-- endbuild -->
 
 <script src="scripts/js/classie.js"></script>

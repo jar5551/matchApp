@@ -263,36 +263,22 @@ class User
     return $users;
   }
 
-  public function getUser($token, $id)
+  public function getUser($id)
   {
-    if (!$this->isUserHasRole($token, 'view:all:users')) {
-      if ($this->getMeId($token) != $id) {
-        throw new \Exception("Brak uprawnień");
-      }
-    }
 
     try {
       $user = Capsule::table('users as u')
-          ->select('u.id', 'u.email', 'u.firstName')
-          ->join('ranks as r', 'u.rank', '=', 'r.id')
+          ->select('*')
           ->where('u.id', $id)
           ->first();
 
-      $units = Capsule::table('usertounit as utu')
-          ->select('u.id')
-          ->join('units as u', 'utu.unit_id', '=', 'u.id')
-          ->where('utu.user_id', $id)
-          ->get();
 
-      $user->units = $units;
-
-      return $user;
 
     } catch (\Exception $e) {
       throw new \Exception("Problem z pobraniem użytkownika");
     }
 
-    return false;
+    return $user;
   }
 
   public function addUser($token, $email, $password, $personalInfo)
@@ -511,7 +497,7 @@ class User
       }
 
       $userData = array(
-          'name' => $user->firstName,
+          'name' => $user->firstName
       );
       return $userData;
     }
@@ -716,12 +702,10 @@ class User
 
   public function getUsersByIds($array)
   {
-
     try {
       $users = Capsule::table('users')
           ->select('id', 'firstName')
           ->whereIn('id', $array)
-
           ->get();
 
     } catch (\Exception $e) {

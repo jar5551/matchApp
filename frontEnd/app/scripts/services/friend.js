@@ -2,16 +2,15 @@
 
 /**
  * @ngdoc service
- * @name frontEndApp.message
+ * @name frontEndApp.friend
  * @description
- * # message
+ * # friend
  * Factory in the frontEndApp.
  */
 angular.module('frontEndApp')
-  .factory('message', function ($rootScope, $resource) {
-    return $resource($rootScope.apiRoot + 'messages/:id' + '?t=' + (new Date()).getTime(), {id: '@id'}, {
+  .factory('friend', function ($rootScope, $resource) {
+    return $resource($rootScope.apiRoot + 'friends/:id' + '?t=' + (new Date()).getTime(), {id: '@id'}, {
       get: {
-        isArray: true,
         transformResponse: function (data) {
           return angular.fromJson(data).msg;
         }
@@ -21,9 +20,6 @@ angular.module('frontEndApp')
         transformResponse: function (data) {
           return angular.fromJson(data).msg;
         }
-      },
-      postMessage: {
-        method: 'PUT'
       }
     });
   });

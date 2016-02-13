@@ -73,8 +73,8 @@ angular
         templateUrl: 'views/friends/all.html',
         controller: 'FriendsCtrl',
         resolve: {
-          messages: function (messagesLoader) {
-            return messagesLoader();
+          friends: function (friendsLoader) {
+            return friendsLoader();
           }
         }
       })

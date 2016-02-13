@@ -9,20 +9,10 @@
  */
 angular.module('frontEndApp')
   .controller('UserMyProfileCtrl', function ($scope, userData) {
-    /*$scope.user = {
-      name: 'Jan Kowalski',
-      me: true,
-      image: 'images/jan-kowalski.jpg',
-      work: 'Student Prawa',
-      description: 'Szukam partnerki na dłuże, może do końca życia... albo i dłużej',
-      attributes: [
-        'komunikatywny',
-        'student',
-        'wysoki'
-      ]
-    };*/
 
     $scope.user = userData;
+
+    $scope.user.me = true;
 
     console.log($scope.user);
   });

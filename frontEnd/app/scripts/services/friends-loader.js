@@ -2,17 +2,17 @@
 
 /**
  * @ngdoc service
- * @name frontEndApp.messagesLoader
+ * @name frontEndApp.friendsLoader
  * @description
- * # messagesLoader
+ * # friendsLoader
  * Factory in the frontEndApp.
  */
 angular.module('frontEndApp')
-  .factory('messagesLoader', function ($q, message) {
+  .factory('friendsLoader', function ($q, friend) {
     return function () {
       var delay = $q.defer();
 
-      message.query(function (response) {
+      friend.query(function (response) {
         delay.resolve(response);
       }, function (error) {
         delay.reject(error.data.msg);
