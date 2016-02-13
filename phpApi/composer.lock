@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a18cc83ded9de4403baa9a54147b4c2d",
-    "content-hash": "36b5264eade60a0db16ceeafd0584854",
+    "hash": "4de7f1e8f2a69d40026518d50aa8b0b2",
+    "content-hash": "c7c709765123adb9329be7ed29ba1a3f",
     "packages": [
         {
             "name": "acodify/fpdf",
@@ -414,7 +414,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/4095094b271f3573e50bf5ee58e23f156cb5b0ec",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/b788ae459a2318c33ac37722da483b27b0aa6131",
                 "reference": "b75e21b366c28e5a6fe393cb37ba260fbf07a47d",
                 "shasum": ""
             },
@@ -674,6 +674,60 @@
             "description": "A library to read, parse and export to PDF SVG files.",
             "homepage": "https://github.com/PhenX/php-svg-lib",
             "time": "2015-05-06 18:49:49"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "5.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "711916966d2d3d19446195170e61b83180665b05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/711916966d2d3d19446195170e61b83180665b05",
+                "reference": "711916966d2d3d19446195170e61b83180665b05",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "suggest": {
+                "league/oauth2-client": "Needed for XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPMailer\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2016-01-30 15:26:05"
         },
         {
             "name": "psr/log",
@@ -1033,7 +1087,8 @@
     "stability-flags": {
         "illuminate/database": 20,
         "vlucas/phpdotenv": 20,
-        "dompdf/dompdf": 10
+        "dompdf/dompdf": 10,
+        "phpmailer/phpmailer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -15,7 +15,8 @@
         "tuupola/slim-basic-auth": "1.0.0",
         "vlucas/phpdotenv": "2.0.x-dev",
         "acodify/fpdf": "1.7",
-        "dompdf/dompdf": "v0.7.0-beta3"
+        "dompdf/dompdf": "v0.7.0-beta3",
+        "phpmailer/phpmailer": "5.4.x-dev"
     },
     "suggest": {
         "ext-mcrypt": "Required for HTTP cookie encryption"
