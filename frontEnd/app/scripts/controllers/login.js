@@ -11,6 +11,16 @@ angular.module('frontEndApp')
   .controller('LoginCtrl', function ($scope, $location, token, notification) {
     $scope.credentials = {};
 
+
+    $scope.$on('$routeChangeSuccess', function(next, current) {
+      token.getMe().then(function (response) {
+        console.log(response);
+        if(response.name) {
+          $location.path('/');
+        }
+      })
+    });
+
     $scope.login = function () {
       console.log($scope.credentials);
       if($scope.loginForm.$valid) {

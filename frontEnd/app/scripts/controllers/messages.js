@@ -8,17 +8,15 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-    .controller('MessagesCtrl', function ($scope, $location, messages) {
+  .controller('MessagesCtrl', function ($scope, $location, messages) {
 
-        $scope.goToConversation = function (id) {
-            $location.path('/wiadomosci/' + id);
-        };
+    $scope.goToConversation = function (id) {
+      $location.path('/wiadomosci/' + id);
+    };
 
-        $scope.messages = messages;
+    $scope.messages = messages;
 
-        console.log($scope.messages);
-
-
+    console.log($scope.messages);
 
 
-    });
+  });

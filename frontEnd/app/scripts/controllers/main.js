@@ -30,6 +30,7 @@ angular.module('frontEndApp')
     }
 
 
+
     /*token.getMe().then(function(response) {
      console.log(response);
      });*/
