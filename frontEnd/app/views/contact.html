@@ -1,21 +1,21 @@
 <h2>Kontakt</h2>
 
-<form ng-submit="" name="contactForm">
+<form ng-submit="sendMessage()" name="contactForm">
   <div class="form-group">
-    <label for="exampleInputEmail1">Imię i nazwisko</label>
-    <input type="text" class="form-control" id="exampleInputimienaz" placeholder="" ng-model="credentials.imienaz" required>
+    <label for="name">Imię i nazwisko</label>
+    <input type="text" class="form-control" id="name" placeholder="" ng-model="message.imienaz" required>
   </div>		
   <div class="form-group">
-    <label for="exampleInputEmail2">E-mail</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="" ng-model="credentials.email" required>
+    <label for="email">E-mail</label>
+    <input type="email" class="form-control" id="email" placeholder="" ng-model="message.email" required>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Temat</label>
-    <input type="text" class="form-control" id="exampleInputtemat" placeholder="" ng-model="credentials.temat" required>
+    <label for="exampleInputtemat">Temat</label>
+    <input type="text" class="form-control" id="exampleInputtemat" placeholder="" ng-model="message.temat" required>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Temat</label><br/>
-    <textarea class="box-area" id="exampleInputmessage" ng-model="credentials.message" required></textarea>
+    <label for="exampleInputmessage">Temat</label><br/>
+    <textarea class="box-area" id="exampleInputmessage" ng-model="message.message" required></textarea>
   </div>
   <button type="submit" class="btn btn-default">Wyślij</button>
 </form>
