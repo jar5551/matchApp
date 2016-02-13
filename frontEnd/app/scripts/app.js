@@ -80,16 +80,16 @@ angular
             })
             .when('/wiadomosci', {
                 templateUrl: 'views/messages/all.html',
-                controller: 'MessagesCtrl'
+                controller: 'MessagesCtrl',
+                resolve: {
+                    messages: function (messagesLoader) {
+                        return messagesLoader();
+                    }
+                }
             })
             .when('/wiadomosci/:messageId', {
                 templateUrl: 'views/messages/one.html',
                 controller: 'MessageCtrl',
-                resolve: {
-                    messageData: function (messageLoader) {
-                        return messageLoader();
-                    }
-                }
             })
             .when('/kontakt', {
                 templateUrl: 'views/contact.html',
