@@ -721,6 +721,10 @@ class User
       $users = Capsule::table('users')
           ->select('id', 'firstName')
           ->whereIn('id', $array)
+<<<<<<< HEAD
+=======
+          //->whereIn('id', array(1, 2, 3))
+>>>>>>> ceafff82e547b5695fe0e677b096755bd6c3df00
           ->get();
 
     } catch (\Exception $e) {
