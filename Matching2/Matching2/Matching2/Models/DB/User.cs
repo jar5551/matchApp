@@ -19,7 +19,7 @@ namespace Matching2.Models.DB
         public string password { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public bool sex { get; set; }
+        public short sex { get; set; }
         public string description { get; set; }
         public System.DateTime createdDate { get; set; }
         public Nullable<System.DateTime> modifiedDate { get; set; }

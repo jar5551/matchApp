@@ -95,6 +95,10 @@ angular
                 templateUrl: 'views/contact.html',
                 controller: 'ContactCtrl'
             })
+            .when('/polityka-prywatnosci', {
+                templateUrl: 'views/polityka-prywatnosci.html',
+                controller: 'RulesCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

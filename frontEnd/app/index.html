@@ -39,7 +39,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">Match</a>
+            <a class="navbar-brand" href="#/"><img src="/images/logo.png" width="35"></a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -47,6 +47,7 @@
             <ul class="nav navbar-nav" ng-hide="user.loggedIn">
               <li><a href="#/logowanie">Logowanie</a></li>
               <li><a ng-href="#/rejestracja">Rejestracja</a></li>
+              <li><a ng-href="#/polityka-prywatnosci">Polityka prywatności</a></li>
               <li><a ng-href="#/kontakt">Kontakt</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right" ng-show="user.loggedIn">
@@ -66,7 +67,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> Studencki projekcik </p>
+        <p><strong>&copy; 2016 | Created by PJ, AB, DC, RA, TG, DD, JF</strong></p>
       </div>
     </div>
 
@@ -126,5 +127,6 @@
     <script src="scripts/js/modernizr.custom.js"></script>
     <script src="scripts/js/notificationFx.js"></script>
     <script src="scripts/js/snap.svg-min.js"></script>
+    <script src="scripts/js/cookie.js"></script>
 </body>
 </html>
