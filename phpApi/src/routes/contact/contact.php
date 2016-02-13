@@ -10,14 +10,14 @@ use src\models\Contact;
 
 $app->post('/contact', function () use ($app) {
 
-    $json = $app->request->getBody();
-    $data = json_decode($json, true);
+  $json = $app->request->getBody();
+  $data = json_decode($json, true);
 
-    $contact = new Contact();
+  $contact = new Contact();
 
-    $contact->sendContactMessage($data);
+  $contact->sendContactMessage($data);
 
-    $app->render(200, array(
-        'msg' => 'Wiadomść została pomyślnie wysłana'
-    ));
+  $app->render(200, array(
+      'msg' => 'Wiadomść została pomyślnie wysłana'
+  ));
 });
