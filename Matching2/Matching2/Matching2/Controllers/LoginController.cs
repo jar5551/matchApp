@@ -38,8 +38,8 @@ namespace Matching2.Controllers
                     return Request.CreateResponse(HttpStatusCode.BadRequest, "User already exist.");
                 }
 
-                if(userModel.Password.Equals(userModel.RePassword)) {
-
+                if(!userModel.Password.Equals(userModel.RePassword)) {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Passwords are not the same.");
                 }
 
                 //Create user and save to database
@@ -88,10 +88,8 @@ namespace Matching2.Controllers
 
         private static string CreateToken(User user, out object dbUser)
         {
-            var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            var expiry = Math.Round((DateTime.UtcNow.AddHours(2) - unixEpoch).TotalSeconds);
-            var issuedAt = Math.Round((DateTime.UtcNow - unixEpoch).TotalSeconds);
-            var notBefore = Math.Round((DateTime.UtcNow.AddMonths(6) - unixEpoch).TotalSeconds);
+            // Token expired after 2 hours
+            var expiry = DateTime.UtcNow.AddHours(2);
 
 
             var payload = new Dictionary<string, object>
@@ -99,13 +97,10 @@ namespace Matching2.Controllers
                 {"email", user.email},
                 {"userId", user.id},
                 {"role", "Admin"  },
-                {"sub", user.id},
-                {"nbf", notBefore},
-                {"iat", issuedAt},
                 {"exp", expiry}
             };
 
-            //var secret = ConfigurationManager.AppSettings.Get("jwtKey");
+
             const string apikey = "secretKey";
 
             var token = JsonWebToken.Encode(payload, apikey, JwtHashAlgorithm.HS256);

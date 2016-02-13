@@ -15,7 +15,7 @@ namespace Matching2.Models
 
         public string LastName { get; set; }
 
-        public bool Sex { get; set; }
+        public short Sex { get; set; }
 
         public string Description { get; set; }
 
