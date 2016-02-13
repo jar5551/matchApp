@@ -8,10 +8,26 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-  .controller('ContactCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('ContactCtrl', function ($scope, $http, $location, notification) {
+
+        $scope.message = {};
+
+        $scope.sendMessage = function () {
+
+            if($scope.contactForm.$valid) {
+                $http.post('/contact',  $scope.message).then(function successCallback(response) {
+                    console.log(response);
+                    notification.addNotification(response.data.msg, false);
+                    $location.path('/');
+                }, function errorCallback(error) {
+                    notification.addNotification(error.data.msg, true);
+
+                });
+
+            } else {
+                notification.addNotification('Porsze wypełnić wszystkie pola formularza', true);
+
+            }
+
+        };
+    });
