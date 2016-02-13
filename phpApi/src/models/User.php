@@ -521,19 +521,17 @@ class User
     {
         if ($this->validateToken($token)) {
             try {
-                $user = Capsule::table('users as u')
-                    ->select('u.email', 'u.firstName', 'u.sex', 'u.description')
-                    ->join('ranks as r', 'u.rank', '=', 'r.id')
+                $user = Capsule::table('users')
+                    ->select('*')
                     ->where('accessToken', $this->shortToken($token))
-                    ->where('active', 1)
                     ->first();
 
-                return $user;
             } catch (\Exception $e) {
                 throw new \Exception("Problem z uzyskaniem informacji o użytkowniku");
             }
         }
-        return false;
+
+        return $user;
     }
 
     public function updateMeFullData($token, $data)

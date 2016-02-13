@@ -51,10 +51,13 @@ class Message
     {
         $user = new User();
 
+        $userId = $user->getMeId($token);
+
         try {
 
             $messages = Capsule::table('messages as m')
-                ->select('*')
+                ->select('m.message', 'm.dateSend', 'u.firstName', 'u.id as userId')
+                ->join('users as u', 'm.author', '=', 'u.id')
                 ->where('topicId', $id)
                 ->get();
 
@@ -67,6 +70,7 @@ class Message
 
     }
 
+
     public function newMessage($token, $topicId, $message) {
 
         $user = new User();
@@ -74,18 +78,22 @@ class Message
 
         $userId = $user->getMeId($token);
 
+        $dateSend = date("Y-m-d H:i:s");
+
         try {
 
-            Capsule::table('messages')
-                ->insert([
+            $messageId = Capsule::table('messages')
+                ->insertGetId([
                     'author' => $userId,
                     'topicId' => $topicId,
                     'message' => $message,
-                    'dateSend' => date("Y-m-d H:i:s")
+                    'dateSend' => $dateSend
                 ]);
 
         } catch (\Exception $e) {
             throw new \Exception('Problem z wysłaniem wiadmości');
         }
+
+        return array('message' => $message, 'dateSend' => $dateSend, 'userId' => $userId);
     }
 }

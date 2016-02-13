@@ -7,7 +7,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="m in message" ng-click="goToConversation(message.id)">
-        <td>{{m.author}}</td>
+        <td><a ng-href="/uzytkownicy/{{m.userId}}">{{m.firstName}}</a></td>
         <td>{{m.message}}</td>
     </tr>
     </tbody>
