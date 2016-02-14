@@ -1,0 +1,14 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Powiadomienie</th>
+        <th>Opcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="notification in notifications">
+        <td>Zaproszenie do znajomych od {{notification.firstName}}</td>
+        <td><a href="#" ng-click="accept($event, $index, notification.id)">Zaakceptuj zaproszenie</a></td>
+    </tr>
+    </tbody>
+</table>

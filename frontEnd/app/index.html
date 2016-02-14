@@ -8,8 +8,9 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -52,10 +53,8 @@
 
           <li ng-show="user.loggedIn"><a href="#/uzytkownicy/moj-profil" ng-bind="user.name"></a></li>
           <li ng-show="user.loggedIn"><a href="#/znajomi">Znajomi</a></li>
+          <li ng-show="user.loggedIn"><a href="#/powiadomienia">Powiadomienia</a></li>
           <li ng-show="user.loggedIn"><a href="#/wiadomosci">Wiadomości</a></li>
-
-          <li><a ng-href="#/polityka-prywatnosci">Polityka prywatności</a></li>
-          <li><a ng-href="#/kontakt">Kontakt</a></li>
 
           <li ng-show="user.loggedIn"><a href="#" ng-click="logout($event)">Wyloguj</a></li>
 
@@ -72,7 +71,7 @@
 
 <div class="footer">
   <div class="container">
-    <p><strong>&copy; 2016 | Created by PJ, AB, DC, RA, TG, DD, JF</strong></p>
+    <p><strong>&copy; 2016 | Created by DD, JF, DC, RA, TG, AB, PJ | <a ng-href="#/polityka-prywatnosci">Polityka prywatności</a> | <a ng-href="#/kontakt">Kontakt</a></strong></p>
   </div>
 </div>
 
@@ -131,6 +130,8 @@
 <script src="scripts/controllers/contact.js"></script>
 <script src="scripts/services/friend.js"></script>
 <script src="scripts/services/friends-loader.js"></script>
+<script src="scripts/services/users-all-loader.js"></script>
+<script src="scripts/controllers/notifications.js"></script>
 <!-- endbuild -->
 
 <script src="scripts/js/classie.js"></script>

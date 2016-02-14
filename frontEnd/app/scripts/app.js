@@ -87,6 +87,10 @@ angular
           }
         }
       })
+      .when('/powiadomienia', {
+        templateUrl: 'views/notifications/all.html',
+        controller: 'NotificationsCtrl',
+      })
       .when('/wiadomosci/:messageId', {
         templateUrl: 'views/messages/one.html',
         controller: 'MessageCtrl',

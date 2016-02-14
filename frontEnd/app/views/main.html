@@ -6,4 +6,16 @@
     Zapraszamy do darmowej rejestracji.
   </p>
   <p ng-hide="user.loggedIn"><a class="btn btn-lg btn-success" ng-href="#/rejestracja">Dołącz do nas!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <table ng-show="user.loggedIn" class="table table-hover">
+    <thead>
+    <tr>
+      <th class="text-center">Znajdz kogoś, kto Cię ineresuje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in allUsers">
+      <td><a ng-href="#/uzytkownicy/{{user.id}}">{{user.firstName}}</a></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

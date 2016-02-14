@@ -5,6 +5,7 @@ require 'users/friends.php';
 require 'registers/registers.php';
 require 'roles/roles.php';
 require 'messages/messages.php';
+require 'notifications/notifications.php';
 require 'contact/contact.php';
 
 /* wyswietl kontrahentow */

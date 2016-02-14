@@ -22,6 +22,12 @@ angular.module('frontEndApp')
           return angular.fromJson(data).msg;
         }
       },
+      query: {
+        isArray: true,
+        transformResponse: function(data) {
+          return angular.fromJson(data).msg;
+        }
+      },
       update: {
         method: 'PUT'
       }

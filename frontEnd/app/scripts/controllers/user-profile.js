@@ -8,9 +8,30 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-  .controller('UserProfileCtrl', function ($scope, $routeParams, userData) {
+  .controller('UserProfileCtrl', function ($rootScope, $scope, $location, $routeParams, $http, userData, message, notification) {
 
     $scope.user = userData;
 
-    console.log($scope.user);
+    $scope.addFriend = function () {
+      $http.get($rootScope.apiRoot + 'friends/add/' + $scope.user.id).then(function successCallback(response) {
+        notification.addNotification(response.data.msg, false);
+        $location.path('/');
+      }, function errorCallback(error) {
+        notification.addNotification(error.data.msg, true);
+
+      });
+    };
+
+    $scope.chat = function () {
+      $http.get($rootScope.apiRoot + 'messages/new-topic/' + $scope.user.id).then(function successCallback(response) {
+        $location.path('/wiadomosci/' + response.data.msg);
+      }, function errorCallback(error) {
+        notification.addNotification(error.data.msg, true);
+      });
+    };
+
+    if($scope.user.me) {
+      $location.path('/uzytkownicy/moj-profil')
+    }
+
   });

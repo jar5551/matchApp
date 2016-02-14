@@ -46,3 +46,15 @@ $app->put('/messages/:topicId', function ($topicId) use ($app) {
       'message' => $newMessage
   ));
 });
+
+$app->get('/messages/new-topic/:userId', function($userId) use ($app) {
+  $token = $app->request->headers("Authorization");
+
+  $message = new Message();
+
+  $newTopic = $message->newTopic($userId, $token);
+
+  $app->render(200, array(
+      'msg' => $newTopic
+  ));
+});

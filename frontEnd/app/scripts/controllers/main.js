@@ -8,7 +8,7 @@
  * Controller of the frontEndApp
  */
 angular.module('frontEndApp')
-  .controller('MainCtrl', function ($scope, token, notification) {
+  .controller('MainCtrl', function ($scope, token, notification, usersAllLoader) {
     $scope.logout = function (e) {
       token.logout();
       e.preventDefault();
@@ -30,6 +30,12 @@ angular.module('frontEndApp')
     }
 
 
+    usersAllLoader().then(function (response) {
+      $scope.allUsers = response;
+    }, function (error) {
+      notification.addNotification(error.data.msg, true);
+
+    });
 
     /*token.getMe().then(function(response) {
      console.log(response);

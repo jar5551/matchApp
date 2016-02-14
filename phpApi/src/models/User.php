@@ -83,13 +83,6 @@ class User
   {
 
     try {
-      /*$roles = Capsule::table('users as u')
-          ->join('roles-to-user as rtr', 'u.id', '=', 'rtr.user_id')
-          ->join('roles as r', 'rtr.role_id', '=', 'r.id')
-          ->select('r.role')
-          ->where('u.email', $email)
-          ->get();*/
-
 
       $roles = Capsule::table('users as u')
           ->select('r.name')
@@ -122,13 +115,6 @@ class User
             'jti' => md5(uniqid(strtotime('now'), true)),
         )
     );
-
-    /*$tokens['accessToken'] = array(
-        'iat' => (string)$tokenCfg['iat'],
-        'exp' => (string)$tokenCfg['exp'],
-        'jti' => $tokenCfg['jti'],
-        'scope' => $roles
-    );*/
 
     $jwt = JWT::encode($tokens['accessToken'], JWT_SECRET);
     $refreshToken = JWT::encode($tokens['refreshToken'], JWTREFRESH_SECRET);
@@ -173,109 +159,51 @@ class User
       throw new \Exception("Error Processing Request");
     }
 
-
     return false;
   }
 
   public function getAllUsers($token)
   {
 
-    if (!$this->isUserHasRole($token, 'view:all:users')) {
-      throw new \Exception("Brak uprawnień");
-    }
-
     try {
-      $usersDB = Capsule::table('users')
-          //->select('id', 'email', 'active', 'firstName', 'lastName', 'position')
-          ->select('id', 'email', 'firstName', 'lastName', 'position', 'active')
+      $users = Capsule::table('users')
+          ->select('id', 'firstName')
           ->get();
     } catch (\Exception $e) {
       throw new \Exception("Problem z pobraniem użytkowników");
     }
 
-    foreach ($usersDB as $user) {
-
-      $units = $this->getUserUnits($user->id);
-
-      $documents = $this->getNumberOfUserDocuments($user->id);
-
-      $users[] = array(
-          'id' => $user->id,
-          'email' => $user->email,
-          'name' => $user->firstName && $user->lastName ? $user->firstName . ' ' . $user->lastName : $user->email,
-          'position' => $user->position,
-          'units' => $units,
-          'documents' => $documents,
-          'active' => $user->active ? true : false,
-          'me' => $this->getMeId($token) == $user->id ? true : false
-      );
-    }
-
     return $users;
   }
 
-  public function getMyUnitUsers($token)
+
+  public function getUser($id, $token)
   {
-    if (!$this->isUserHasRole($token, 'view:all:users')) {
-      if (!$this->isUserHasRole($token, 'view:my:users')) {
-        throw new \Exception("Brak uprawnień");
-      }
-    }
 
-    $meId = $this->getMeId($token);
+    $user = new User();
 
-    $myUnits = $this->getUserUnits($meId);
-
-    $whereArray = array();
-
-    foreach ($myUnits as $unit) {
-      array_push($whereArray, $unit->id);
-    }
-
-    try {
-      $usersDB = Capsule::table('users as u')
-          ->select('u.id', 'u.email', 'u.firstName', 'u.lastName', 'u.position', 'u.active')
-          ->join('usertounit as utu', 'u.id', '=', 'utu.user_id')
-          ->whereIn('utu.unit_id', $whereArray)
-          ->groupBy('u.id')
-          ->get();
-    } catch (\Exception $e) {
-      throw new \Exception("Problem z pobraniem użytkowników");
-    }
-
-    foreach ($usersDB as $user) {
-
-      $units = $this->getUserUnits($user->id);
-
-      $documents = $this->getNumberOfUserDocuments($user->id);
-
-      $users[] = array(
-          'id' => $user->id,
-          'email' => $user->email,
-          'name' => $user->firstName && $user->lastName ? $user->firstName . ' ' . $user->lastName : $user->email,
-          'position' => $user->position,
-          'units' => $units,
-          'documents' => $documents,
-          'active' => $user->active ? true : false
-      );
-    }
-
-    return $users;
-  }
-
-  public function getUser($id)
-  {
 
     try {
       $user = Capsule::table('users as u')
-          ->select('*')
+          ->select('id', 'firstName')
           ->where('u.id', $id)
           ->first();
 
 
-
     } catch (\Exception $e) {
       throw new \Exception("Problem z pobraniem użytkownika");
+    }
+
+    if($this->isUserMyFriend($id, $token)) {
+      $user->friend = true;
+    } else {
+      $user->friend = false;
+    }
+
+    if($this->getMeId($token) == $id) {
+      $user->me = true;
+    } else {
+      $user->me = false;
     }
 
     return $user;
@@ -713,6 +641,32 @@ class User
     }
 
     return $users;
+  }
+
+  public function isUserMyFriend($id, $token) {
+    $meId = $this->getMeId($token);
+
+    try {
+
+      $userA = Capsule::table('friends')
+          ->select('*')
+          ->where('userA', $meId)
+          ->where('userB', $id)
+          ->count();
+
+      $userB = Capsule::table('friends')
+          ->select('*')
+          ->where('userA', $id)
+          ->where('userB', $meId)
+          ->count();
+
+
+    } catch (\Exception $e) {
+      throw new \Exception("Problem z pobraniem użytkowników");
+    }
+
+    return $userA + $userB > 0;
+
   }
 
 }

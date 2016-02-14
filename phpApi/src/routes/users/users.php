@@ -240,17 +240,10 @@ $app->get('/users/:user_id', function ($user_id) use ($app) {
 
     $user = new User();
 
-    $userData = $user->getUser($user_id);
+    $userData = $user->getUser($user_id, $token);
 
-    if($userData) {
-        $app->render(200, array(
-            'msg' => $userData
-        ));
-    }
-
-    $app->render(400, array(
-        'error' => true,
-        'msg' => 'Wystąpił problem z pobraniem użytkownika'
+    $app->render(200, array(
+        'msg' => $userData
     ));
 });
 

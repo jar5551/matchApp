@@ -22,13 +22,12 @@ class Message
 
     try {
       $messageTopics = Capsule::table('messagestopics as mt')
-          ->select('mt.id', 'mt.name', 'mt.userFrom', 'mt.userTo', 'u1.firstName as userFromName', 'u2.firstName as userToName')
+          ->select('mt.id', 'mt.userFrom', 'mt.userTo', 'u1.firstName as userFromName', 'u2.firstName as userToName')
           ->join('users as u1', 'mt.userFrom', '=', 'u1.id')
           ->join('users as u2', 'mt.userTo', '=', 'u2.id')
           ->where('mt.userFrom', $userId)
           ->orWhere('mt.userTo', $userId)
           ->get();
-
 
     } catch (\Exception $e) {
       throw new \Exception('Problem z probraniem wiadmości');
@@ -36,6 +35,20 @@ class Message
 
 
     foreach ($messageTopics as $topic) {
+
+      $lastMessage = Capsule::table('messages')
+          ->select('message')
+          ->where('topicId', $topic->id)
+          ->orderBy('id', 'desc')
+          ->first();
+
+      if($lastMessage) {
+        $topic->name = $lastMessage->message;
+      } else {
+        $topic->name = '';
+      }
+
+
       if ($topic->userFrom == $userId) {
         $topic->participant = $topic->userToName;
       } else {
@@ -77,7 +90,6 @@ class Message
 
     $user = new User();
 
-
     $userId = $user->getMeId($token);
 
     $dateSend = date("Y-m-d H:i:s");
@@ -97,5 +109,50 @@ class Message
     }
 
     return array('message' => $message, 'dateSend' => $dateSend, 'userId' => $userId);
+  }
+
+  public function newTopic($userId, $token)
+  {
+    $user = new User();
+
+    $meId = $user->getMeId($token);
+
+    $conversation = $this->isConversationBetweenUsers($userId, $meId);
+
+    if (!$conversation) {
+      try {
+
+        $conversation = Capsule::table('messagestopics')
+            ->insertGetId(array(
+                'userFrom' => $meId,
+                'userTo' => $userId,
+                'name' => ''
+            ));
+
+      } catch (\Exception $e) {
+        throw new \Exception('Problem z inicjacją czatu');
+      }
+    }
+
+    return $conversation;
+  }
+
+  private function isConversationBetweenUsers($userA, $userB)
+  {
+
+    $topicId = Capsule::table('messagestopics')
+        ->select('id')
+        ->whereIn('userFrom', array($userA, $userB))
+        ->whereIn('userTo', array($userA, $userB))
+        ->first();
+
+    if (!$topicId) {
+      $topicId = false;
+    } else {
+      $topicId = $topicId->id;
+    }
+
+
+    return $topicId;
   }
 }
