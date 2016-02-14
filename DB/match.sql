@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 13 Lut 2016, 17:23
+-- Czas generowania: 14 Lut 2016, 01:45
 -- Wersja serwera: 10.1.9-MariaDB
 -- Wersja PHP: 5.6.15
 
@@ -100,28 +100,6 @@ INSERT INTO `characteristicstousers` (`characteristic_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `fiends`
---
-
-CREATE TABLE `fiends` (
-  `id` int(11) NOT NULL,
-  `userA` int(11) NOT NULL,
-  `userB` int(11) NOT NULL,
-  `dateFriendship` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `fiends`
---
-
-INSERT INTO `fiends` (`id`, `userA`, `userB`, `dateFriendship`) VALUES
-(1, 1, 2, '2016-02-26 07:18:22'),
-(2, 1, 3, '2016-02-11 08:22:48'),
-(3, 2, 3, '2016-02-19 11:34:32');
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `friendrequests`
 --
 
@@ -140,7 +118,41 @@ CREATE TABLE `friendrequests` (
 INSERT INTO `friendrequests` (`id`, `userFrom`, `userTo`, `accepted`, `date`) VALUES
 (1, 2, 1, 1, '2016-02-09 08:13:13'),
 (2, 1, 3, 1, '2016-02-18 14:21:37'),
-(3, 1, 4, 0, '2016-02-24 04:27:18');
+(3, 1, 4, 1, '2016-02-24 04:27:18'),
+(4, 1, 2, 0, '2016-02-13 23:58:05'),
+(5, 1, 5, 0, '2016-02-13 23:58:35'),
+(6, 1, 6, 1, '2016-02-13 23:58:59'),
+(7, 1, 7, 1, '2016-02-14 00:29:07'),
+(8, 1, 8, 0, '2016-02-14 00:29:25'),
+(9, 1, 38, 0, '2016-02-14 01:06:35'),
+(10, 1, 39, 0, '2016-02-14 01:06:52'),
+(11, 41, 1, 1, '2016-02-14 01:07:52');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `friends`
+--
+
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL,
+  `userA` int(11) NOT NULL,
+  `userB` int(11) NOT NULL,
+  `dateFriendship` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `friends`
+--
+
+INSERT INTO `friends` (`id`, `userA`, `userB`, `dateFriendship`) VALUES
+(1, 1, 2, '2016-02-26 07:18:22'),
+(2, 1, 3, '2016-02-11 08:22:48'),
+(3, 2, 3, '2016-02-19 11:34:32'),
+(4, 1, 6, '0000-00-00 00:00:00'),
+(6, 1, 4, '0000-00-00 00:00:00'),
+(7, 1, 7, '0000-00-00 00:00:00'),
+(8, 1, 41, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -221,7 +233,19 @@ INSERT INTO `messages` (`id`, `author`, `topicId`, `message`, `dateSend`, `dateR
 (57, 1, 1, 'dasda', '2016-02-12 19:23:46', NULL),
 (58, 1, 1, 'dasdas', '2016-02-12 19:24:14', NULL),
 (59, 39, 1, 'dsada', '2016-02-12 19:24:22', NULL),
-(60, 1, 2, 'dasdas', '2016-02-13 15:31:48', NULL);
+(60, 1, 2, 'dasdas', '2016-02-13 15:31:48', NULL),
+(61, 40, 2, 'chuju', '2016-02-13 15:32:31', NULL),
+(62, 1, 2, 'cipo', '2016-02-13 15:32:44', NULL),
+(63, 40, 2, 'Fajna dupa z Ciebie', '2016-02-13 15:33:01', NULL),
+(64, 1, 2, 'Łykaj rogala', '2016-02-13 15:33:23', NULL),
+(65, 1, 1, 'das', '2016-02-13 19:02:59', NULL),
+(66, 1, 1, 'sda', '2016-02-13 19:03:02', NULL),
+(67, 1, 2, 'fads', '2016-02-14 01:33:27', NULL),
+(68, 1, 3, 'das', '2016-02-14 01:33:30', NULL),
+(69, 1, 5, 'fafd', '2016-02-14 01:35:19', NULL),
+(70, 1, 4, 'dasdsa', '2016-02-14 01:41:33', NULL),
+(71, 1, 1, 'dsa', '2016-02-14 01:41:53', NULL),
+(72, 1, 4, 'gghg', '2016-02-14 01:42:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -241,7 +265,11 @@ CREATE TABLE `messagestopics` (
 --
 
 INSERT INTO `messagestopics` (`id`, `userFrom`, `userTo`, `name`) VALUES
-(1, 1, 2, 'Hej mała ;)');
+(1, 1, 2, 'Hej mała ;)'),
+(2, 1, 3, ''),
+(3, 1, 5, ''),
+(4, 1, 41, ''),
+(5, 1, 6, '');
 
 -- --------------------------------------------------------
 
@@ -357,7 +385,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `firstName`, `accessToken`, `refreshToken`, `sex`, `description`, `createdDate`, `modifiedDate`, `lastLoginDate`) VALUES
-(1, 'test@test.pl', '$2y$10$ZzCHqeG52KcIAGRoYXJQp.hO7ePrjzar.ns7E/HN/OJeRlcBgiY3i', 'Użytkownik', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1Mzc4MTc1IiwiZXhwIjoiMTQ1NTM4NTM3NSIsImp0aSI6ImU4ZmFhYThjODJhYzFkMDNkNjZkODAwMTJlYThkYzZjIiwic2NvcGUiOlt7Im5hbWUiOiJBZG1pbmlzdHJhdG9yIn1dfQ.zhbB9FFwXJdC5JywRnlMPNXsbIbDc5Cv4oe32ku3iRM', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1Mzc4MTc1IiwiZXhwIjoiMTQ1NTM4NTM3NSIsImp0aSI6Ijk5MjQ1N2EwZWY1YjkxYTEwZDY0MDg4ZWM3MTAzMTMyIn0.HIHrc-p1AOwIqr8w68TN_5qsqEVA6g0aTYoMyWK7lyw', 1, 'Administrator serwisu', '0000-00-00 00:00:00', NULL, NULL),
+(1, 'test@test.pl', '$2y$10$ZzCHqeG52KcIAGRoYXJQp.hO7ePrjzar.ns7E/HN/OJeRlcBgiY3i', 'Użytkownik', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1NDA4NDk4IiwiZXhwIjoiMTQ1NTQxNTY5OCIsImp0aSI6IjY4MDczZmY0YjVlOTQ2YTZlNDMzMDNhZGEzZDUyNDZmIiwic2NvcGUiOlt7Im5hbWUiOiJBZG1pbmlzdHJhdG9yIn1dfQ.uXmLtVh0unbjqLfkjKK3yTWDdus3Np1KLOFa7fbWSV8', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1NDA4NDk4IiwiZXhwIjoiMTQ1NTQxNTY5OCIsImp0aSI6IjJjNmE2OWNmMDYxNDViYTI5ODFmYmQ1ZWQwNzYzMDc4In0.M4kVYb7es87FudHLrXpNTtpGQzgf4CO9um7wUSoLRgw', 1, 'Administrator serwisu', '0000-00-00 00:00:00', NULL, NULL),
 (2, 'kobieta@test.pl', '$2a$09$.D/my3d6vaNVDb43.m6mZuktxQIrzKfhjtA3wI1iMif5luwGRtPHK', 'Testowa', '', '', 0, 'Jestem kobietÄ… testowÄ…. Ĺ»adnych testĂłw siÄ™ nie bojÄ™.', '0000-00-00 00:00:00', NULL, NULL),
 (3, 'mezczyzna@test.pl', '$2a$09$4SI015knDqxiXtr/PvuFPuH4lNvZPfOwS8D7yc6LagWcsArjHSBAG', 'Testowy', '', '', 1, 'Testuj mnie jak chcesz', '0000-00-00 00:00:00', NULL, NULL),
 (4, 'asd3fe@adsa.pl', '$2a$09$4Wc4U8fNYxfIBVmHgjDwoO0rQC5LbjW.7A9cGIeKmVMZWF06vnF8e', 'Jan', '', '', 1, 'Opis', '0000-00-00 00:00:00', NULL, NULL),
@@ -396,7 +424,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `firstName`, `accessToken`, `ref
 (37, 'adssa@dsa.pl', '$2y$10$y9qi589HPACeBIu5o68nNeayEoMbjxvHCib95amwttP9kgB35pOci', 'Jan', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MjI2MDQwIiwiZXhwIjoiMTQ1NTIyNjk0MCIsImp0aSI6IjcyNTQzNmI2ZjY1Mzk5MTY1OWQ5OWYyMzA1YzE2MDdmIiwic2NvcGUiOltdfQ.xh0Y0j2TeO016VL3_roa3sugOKp3faaOCwe21ZSNyhI', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MjI2MDQwIiwiZXhwIjoiMTQ1NTIzMzI0MCIsImp0aSI6ImU5NDYzNzEyZjYxYjFiNjcwNTJlMmM4MGFlZGU2NzhlIn0.2lKqAg552_aemAgoaw-a2nHcHbsTmWvyOEh3cQHlolI', 1, NULL, '2016-02-11 22:27:19', NULL, NULL),
 (38, 'asd@dsadas.pl', '$2y$10$ayXv5ReUncZfmv3Jvt32UuCLeaskIQIVfoJ3ut9dUS0VOK1lKvSLu', 'Jan', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MjI2MDYyIiwiZXhwIjoiMTQ1NTIyNjk2MiIsImp0aSI6ImRjYjUzZGY4MmI4M2ZlNzY4NTVlZDA3Y2M4ZWI1OWQ3Iiwic2NvcGUiOltdfQ.cCkFXPf44_laEQgTIWXSCvUIBlGE5IEtOkD_a0OePBo', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MjI2MDYyIiwiZXhwIjoiMTQ1NTIzMzI2MiIsImp0aSI6IjA3ZTdkZGY1ZTU1YjU5NzJjYjQyZGQxMmRkN2NkODdhIn0.hwS3cF4jVnrFtwxcwaceu1AjYKCM7xB-cJvM9RgOrkI', 1, NULL, '2016-02-11 22:27:42', NULL, NULL),
 (39, 'asdsa@dsadas', '$2y$10$tXP/dWtxYlH1B3EXhQCCheNBixgM673zdF3/cRO4m8JxbjDnZwwE6', 'Anna', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzAxNDA4IiwiZXhwIjoiMTQ1NTMwODYwOCIsImp0aSI6IjIyMTIyOTZhMTA3ODE2ZWQyNzZhMDlkODI5MWQyNjM0Iiwic2NvcGUiOltdfQ.gM3_YAEZ5HbB1inD4dEZhGBh-A58W-iFqikIxkHv9kE', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzAxNDA4IiwiZXhwIjoiMTQ1NTMwODYwOCIsImp0aSI6IjQ1MTg2MDA3ZGQ1Zjc2MDljMjc4NDQ4YjZmM2FiOTllIn0.9HnO5o5axlP-8d_WQ4s4vCfIgx6ib8UO8hn14Q2un7g', 0, NULL, '2016-02-12 19:23:28', NULL, NULL),
-(40, 'fdf@fad', '$2y$10$gJj3TqaEsHyVlm4iRhmEx./sQxRwxfZ2/WMvZZhZ6hUFzIU64dZVW', 'afd', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzczOTQwIiwiZXhwIjoiMTQ1NTM4MTE0MCIsImp0aSI6ImZlYjMwNWYyZGJkMjZlMGUzMzMwZGE0YWMyNjlkNzk2Iiwic2NvcGUiOltdfQ.sa6V6dm9YO-qo_2aknmZy2miSZ1olUwnqrgtpKFaBh4', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzczOTQwIiwiZXhwIjoiMTQ1NTM4MTE0MCIsImp0aSI6IjM2NmJkM2JmNmE3NzA3NDllNjMxMDhmZWI4YWRhNzRlIn0.XXgpFAH_Syh8MtuPNcY6wjiN5RScNfh2UumP9rrHlhI', 0, NULL, '2016-02-13 15:32:20', NULL, NULL);
+(40, 'fdf@fad', '$2y$10$gJj3TqaEsHyVlm4iRhmEx./sQxRwxfZ2/WMvZZhZ6hUFzIU64dZVW', 'afd', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzczOTQwIiwiZXhwIjoiMTQ1NTM4MTE0MCIsImp0aSI6ImZlYjMwNWYyZGJkMjZlMGUzMzMwZGE0YWMyNjlkNzk2Iiwic2NvcGUiOltdfQ.sa6V6dm9YO-qo_2aknmZy2miSZ1olUwnqrgtpKFaBh4', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1MzczOTQwIiwiZXhwIjoiMTQ1NTM4MTE0MCIsImp0aSI6IjM2NmJkM2JmNmE3NzA3NDllNjMxMDhmZWI4YWRhNzRlIn0.XXgpFAH_Syh8MtuPNcY6wjiN5RScNfh2UumP9rrHlhI', 0, NULL, '2016-02-13 15:32:20', NULL, NULL),
+(41, 'das@dsa', '$2y$10$2Iotn0f015XxNO7Zob1jduphQVGAJXbRCYKL88u.TCVjuqTSWCt7a', 'das@dsa', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1NDA4NDY5IiwiZXhwIjoiMTQ1NTQxNTY2OSIsImp0aSI6IjBiOWUwZjg2M2I0YzZkMmJjMGVmNzBlMWQ1NTlmNDgzIiwic2NvcGUiOltdfQ.LGjvZHIRUO-jR32rFOlJOEsGuZBbJfUPtkllVvkdOIY', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOiIxNDU1NDA4NDY5IiwiZXhwIjoiMTQ1NTQxNTY2OSIsImp0aSI6ImY3OTcwMmU5YmEyMDliZTZiNGQ2MWI1MmI4NDhjNjAyIn0.v6RKpRdu7NVFwWTt97FGtUvK8DE7uanAfubVQfnWWHc', 0, NULL, '2016-02-14 01:07:49', NULL, NULL);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -409,15 +438,15 @@ ALTER TABLE `characteristics`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fiends`
---
-ALTER TABLE `fiends`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `friendrequests`
 --
 ALTER TABLE `friendrequests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `friends`
+--
+ALTER TABLE `friends`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -466,25 +495,25 @@ ALTER TABLE `users`
 ALTER TABLE `characteristics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT dla tabeli `fiends`
---
-ALTER TABLE `fiends`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT dla tabeli `friendrequests`
 --
 ALTER TABLE `friendrequests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT dla tabeli `friends`
+--
+ALTER TABLE `friends`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT dla tabeli `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 --
 -- AUTO_INCREMENT dla tabeli `messagestopics`
 --
 ALTER TABLE `messagestopics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT dla tabeli `photos`
 --
@@ -504,7 +533,7 @@ ALTER TABLE `sex`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
