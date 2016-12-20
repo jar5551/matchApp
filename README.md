@@ -1,5 +1,5 @@
 # matchApp
-### Projekt, który spowoduje, że zaliczymy przedmiot z możliwie najwyżsą oceną
+### Projekt studencki
 matchApp to aplikacja webowa - serwis randkowy "Match".
 ______
 Projekt jest podzielony na dwie warstwy - warstwa aplikacji działającej postronie serwera (REST API) oraz warstwa aplikacji działającej po stronie klienta. Obie warstwy projektują oraz produjuą dwa oddzielne zespoły. W finalnym etapie prac nastąpi pęłna integracja  pomiędzy backendem a frontendem.
